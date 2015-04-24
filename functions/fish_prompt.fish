@@ -13,6 +13,18 @@ function fish_prompt -d "Zach's attempt at writing a fish prompt"
         set -g color4 (set_color -o blue)
         set -g error (set_color red)
         set -g normal (set_color normal)
+
+        # Configure __fish_git_prompt
+        set -g __fish_git_prompt_showdirtystate 'yes'
+        set -g __fish_git_prompt_showstagedstate 'yes'
+        #set -g __fish_git_prompt_showupstream 'yes'
+        set -g __fish_git_prompt_color_branch blue
+        set -g dirty_color (set_color yellow)
+        set -g stage_color (set_color green)
+        set -g __fish_git_prompt_char_dirtystate (echo -n "$dirty_color""dirty$color4")
+        set -g __fish_git_prompt_char_stagedstate (echo -n "$stage_color""staged$color4")
+        #set -g __fish_git_prompt_char_upstream_ahead 'ahead'
+        #set -g __fish_git_prompt_char_upstream_behind 'behind'
     end
 
     if test $last_status -eq 0
@@ -32,18 +44,6 @@ function fish_prompt -d "Zach's attempt at writing a fish prompt"
         end
     end
 
-    # Configure __fish_git_prompt
-    set -g __fish_git_prompt_showdirtystate 'yes'
-    set -g __fish_git_prompt_showstagedstate 'yes'
-    set -g __fish_git_prompt_showupstream 'yes'
-    set -g __fish_git_prompt_color_branch blue
-    
-    set -g __fish_git_prompt_char_dirtystate 'dirty'
-    set -g __fish_git_prompt_char_stagedstate 'staged'
-    set -g __fish_git_prompt_char_upstream_ahead 'ahead'
-    set -g __fish_git_prompt_char_upstream_behind 'behind'
-
-
-    echo -n -s "$color1" (date "+< %H:%M ") "$color2" "$fish_user" "$normal" ":" "$color3" (prompt_pwd) "$color4"  (__fish_git_prompt) "$prompt_stat"  "$normal$color1" ' > ' "$normal"
+    echo -n -s "$color1" (date "+%H:%M ") "$color2" "$fish_user" "$normal" ":" "$color3" (prompt_pwd) "$color4"  (__fish_git_prompt) "$prompt_stat"  "$normal$color1" ' > ' "$normal"
 
 end
