@@ -35,13 +35,11 @@ function fish_prompt -d "Zach's attempt at writing a fish prompt"
     # Configure __fish_git_prompt
     set -g __fish_git_prompt_showdirtystate 'yes'
     set -g __fish_git_prompt_showstagedstate 'yes'
-    set -g __fish_git_prompt_showstashstate 'yes'
     set -g __fish_git_prompt_showupstream 'yes'
     set -g __fish_git_prompt_color_branch blue
     
     set -g __fish_git_prompt_char_dirtystate 'dirty'
     set -g __fish_git_prompt_char_stagedstate 'staged'
-    set -g __fish_git_prompt_char_stashstate 'stash'
     set -g __fish_git_prompt_char_upstream_ahead 'ahead'
     set -g __fish_git_prompt_char_upstream_behind 'behind'
 
