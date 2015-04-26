@@ -9,3 +9,8 @@ set -g PY2 /home/zachary/Documents/Programming/py2s/
 if [ -f ~/.config/fish/aliases.fish ]
     source ~/.config/fish/aliases.fish
 end
+
+# Ad ~/bin if it exists
+if [ -d ~/bin ]
+    set PATH $PATH ~/bin
+end
